@@ -1,0 +1,268 @@
+$accent-color: #0575e6;
+$active-bg: #cde3fa;
+$active-bg-2: #0b65bf;
+$text-color: #252525;
+$scroll-color: #3a7bd5;
+
+body {
+  color: $text-color;
+}
+
+#page-preloader .spinner:before {
+  border-top-color: $accent-color;
+}
+
+.header {
+
+  &.active {
+    color: $text-color;
+
+    .change-lng li.active a {
+      color: $accent-color;
+    }
+
+    .point:after {
+      color: $accent-color;
+    }
+
+    .mobile-btn > div {
+      background: $accent-color;
+    }
+  }
+
+  &.header-not-home {
+    color: $text-color;
+    background: #fff;
+
+    .mobile-btn > div {
+      background: $accent-color;
+    }
+  }
+}
+
+.first-screen, .mob-menu-wrapper {
+  background: $accent-color;
+}
+
+.about-me-info {
+  .info-row {
+    .fa:active {
+      color: $active-bg;
+      opacity: 1;
+    }
+  }
+}
+
+.btn-theme-white {
+  color: $accent-color;
+
+  &:hover, &:focus {
+    color: $accent-color;
+  }
+
+  &:active {
+    background: $active-bg;
+  }
+}
+
+.btn-theme-white-tr {
+
+  &:hover {
+    color: $accent-color;
+  }
+
+  &:active {
+    background: $active-bg;
+    border-color: $active-bg;
+  }
+}
+
+.btn-theme-blue {
+  background: $accent-color;
+
+  &:hover {
+    box-shadow: 0 10px 20px 0 rgba($accent-color, 0.2);
+  }
+
+  &:active {
+    background: $active-bg-2;
+    box-shadow: 0 10px 20px 0 rgba($accent-color, 0.2);
+  }
+}
+
+.btn-theme-blue-tr {
+  border-color: $accent-color;
+  color: $accent-color;
+
+  &:focus {
+    border-color: $accent-color;
+    color: $accent-color;
+  }
+
+  &:hover {
+    background: $accent-color;
+    color: #fff;
+    box-shadow: 0 10px 20px 0 rgba($accent-color, 0.2);
+  }
+
+  &:active {
+    background: $active-bg-2;
+    box-shadow: 0 10px 20px 0 rgba($accent-color, 0.2);
+    border-color: $active-bg-2;
+  }
+}
+
+.project:hover {
+
+  .project-name {
+    color: $accent-color;
+  }
+}
+
+.projects-filter {
+
+  ul {
+
+    li {
+
+      &.active {
+        color: $accent-color;
+      }
+
+      &:hover {
+        color: $accent-color;
+      }
+    }
+  }
+}
+
+.form-wrapper {
+
+  .form-group {
+
+    .help-block {
+      color: $text-color;
+    }
+
+    @at-root
+    .site-input {
+      &:hover, &:focus {
+        border-color: $accent-color!important;
+        box-shadow: 0 10px 20px 0 rgba($accent-color, 0.2);
+        border-right: 3px solid $accent-color!important;
+        border-left: 3px solid $accent-color!important;
+      }
+    }
+
+    &.warning, &.error {
+
+      .help-block {
+        color: #f77482;
+      }
+
+      .site-input {
+        border-color: #fff;
+        border-top-color: #f77482;
+        border-left-color: #fff;
+        border-right-color: #fff;
+      }
+    }
+
+    &.success {
+
+      .help-block-success {
+        color: #49bb7b;
+      }
+      .site-input {
+        border-color: #fff;
+        border-top-color: #49bb7b;
+        border-left-color: #fff;
+        border-right-color: #fff;
+      }
+    }
+  }
+
+}
+
+.contacts-section, .modal-body {
+  .about-me-info {
+    .info-row {
+      .fa {
+        &:hover {
+          color: $accent-color;
+          opacity: 1;
+        }
+        &:active {
+          color: $active-bg-2;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.content {
+  blockquote {
+    border-color: $accent-color;
+  }
+}
+
+.project-info-line {
+
+  .info-line {
+
+    .fa {
+      &:hover {
+        color: $accent-color;
+        opacity: 1;
+      }
+      &:active {
+        color: $active-bg-2;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.highcharts-xaxis-labels, .highcharts-yaxis-labels {
+  text {
+    color: $text-color!important;
+    fill: $text-color!important;
+    opacity: 0.8;
+  }
+}
+
+.highcharts-color-0 {
+  rect {
+    fill: #26a0da;
+  }
+}
+.highcharts-color-1 {
+  rect {
+    fill: $accent-color;
+  }
+}
+
+.highcharts-legend-item {
+  text {
+    color: $text-color!important;
+    fill: $text-color!important;
+  }
+}
+
+.mCS-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  background: $scroll-color;
+}
+
+.mCS-dark.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
+  background: $scroll-color;
+  box-shadow: 0 10px 20px 0 rgba($accent-color, 0.2);
+}
+.mCS-dark.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar {
+  background: #366ab2;
+  box-shadow: 0 10px 20px 0 rgba($accent-color, 0.2);
+}
+
+.mCS-dark.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {
+  background: $scroll-color;
+}

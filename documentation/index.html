@@ -1,0 +1,283 @@
+<!doctype html>
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Richard - Multipurpose HTML Template</title>
+<meta name="description" content="Moresa - Multipurpose HTML Template">
+<meta name="author" content="Templines">
+<meta name="copyright" content="Templines">
+<meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
+<meta name="date" content="2015-09-16T00:00:00+02:00">
+<link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/jquery.scrollTo.js"></script>
+<script src="assets/js/jquery.easing.js"></script>
+<script>document.createElement('section');var duration='500',easing='swing';</script>
+<script src="assets/js/script.js"></script>
+</head>
+<body class="documenter-project-Academica-multipurpose-wordpress-template">
+<div id="documenter_sidebar">
+  <ul id="documenter_nav">
+<li><a class="current" href="#section01">TOOLS</a></li>
+<li><a class="current" href="#section02">HOME PAGE SECTIONS</a></li>
+<li><a class="current" href="#section03">PAGE PRELOADING EFFECT</a></li>
+<li><a class="current" href="#section04">PORTFOLIO MIX</a></li>
+<li><a class="current" href="#section05">MAIN STYLES AND SCRIPTS</a></li>
+<li><a class="current" href="#section06">CHANGELOGS</a></li>
+
+  </ul>
+  
+</div>
+<div id="documenter_content">
+<section id="documenter_cover">
+  <h1>Richard - Multipurpose HTML Template</h1>
+  <div id="documenter_buttons">
+  <a href="https://themeforest.net/user/aspirity" class="btn btn-primary btn-large">Get support</a>
+  <a href="https://themeforest.net/user/aspirity/portfolio" class="btn btn-primary btn-large">Demo page</a>
+  <a href="https://themeforest.net/user/aspirity" class="btn btn-primary btn-large">Buy</a> </div>
+  <hr>
+  <p><img src="assets/images/preview.jpg"></p>
+</section>
+<section id="documentation" class="documentation-row">
+<div class="container">
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearfix">
+<p>Thank you for purchasing this item. We provide support for all of our Items, but please make sure you read this documentation first. Thank you so much!</p>
+<hr>
+<p class="alert alert-success">If you are not familiar with HTML and CSS, I highly recommend that you to hire a specialist. It will save your time and you will get only positive emotions while using our product.</p>
+<p>Let's look at the structure of Landing Page. It includes its own sections with content. On request you can add or remove sections of the site. Please, be careful when removing unwanted sections. It can cause errors in <strong>theme.js</strong>. All tags have to be closed properly.</p>
+<div class="doc-section" id="section01">
+<h3>Tools to help work:</h3>
+<hr>
+<ul>
+<li><a target="_blank" href="https://addons.mozilla.org/ru/firefox/addon/firebug/">Firebug</a></li>
+<li class="li-last"><a target="_blank" href="https://developer.chrome.com/devtools/index">Chrome devtools</a></li>
+</ul>
+</div>
+<div class="doc-section" id="section02">
+<h3>Home Page Sections</h3>
+<hr>
+<h4>Main menu</h4>
+<pre>
+<code data-language="html">
+<div class="col-md-9 text-right hidden-sm hidden-xs">
+<div class="main-menu header-links">
+	<ul>
+		<li><a href="#projects">My Projects</a></li>
+		<li><a href="#" data-toggle="modal" data-target="#about-me-modal">About Me</a></li>
+		<li><a href="download/Resume.pdf" download>Download CV</a></li>
+		<li><a href="#" data-toggle="modal" data-target="#contact-me-modal">Contact me</a></li>
+	</ul>
+</div>
+<div class="change-lng header-links">
+	<ul>
+		<li><a href="#">ENG</a></li>
+		<li><a href="#">RU</a></li>
+	</ul>
+</div>
+</div>
+</code>
+</pre>
+<h4>Main menu mobile</h4>
+<pre>
+<code data-language="html">
+<div class="mob-menu-wrapper hidden-md hidden-lg">
+    <div class="close-mob-menu">
+        <span class="mdi mdi-window-close"></span>
+    </div>
+	<div class="mobile-box-wrap">
+		<div class="mobile-box-flex">
+			<div class="mobile-menu header-links">
+				<ul>
+					<li><a href="#projects">My Projects</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#about-me-modal">About Me</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#contact-me-modal">Contact me</a></li>
+				</ul>
+			</div>
+			<div class="change-lng header-links">
+				<ul>
+					<li><a href="#">ENG</a></li>
+					<li><a href="#">RU</a></li>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+</div>
+</code>
+</pre>
+<h4>Contact form</h4>
+<pre>
+<code data-language="html">
+<div class="form-wrapper">
+<form id="contact-form" novalidate>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				<label for="name-input">Name</label>
+				<input type="text"
+					   class="site-input name-input"
+					   id="name-input"
+					   placeholder="Your name"
+					   required
+					   data-validation-required-message="Invalid input">
+				<p class="help-block"></p>
+				<p class="help-block-success">done</p>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group">
+				<label for="email-input">E-mail</label>
+				<input type="email"
+					   class="site-input email-input"
+					   id="email-input"
+					   placeholder="Contact e-mail"
+					   required
+					   data-validation-email-message="Invalid input"
+					   data-validation-required-message="Invalid input">
+				<p class="help-block"></p>
+				<p class="help-block-success">done</p>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="textarea">Message</label>
+				<textarea id="textarea"
+						  class="site-input textarea"
+						  placeholder="Project description"
+						  required
+						  data-validation-required-message="Invalid input"></textarea>
+				<p class="help-block"></p>
+				<p class="help-block-success">done</p>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="submit-holder">
+				<input class="site-btn btn-theme-blue" type="submit" value="Send message">
+			</div>
+		</div>
+	</div>
+</form>
+</div>
+</code>
+</pre>
+</div>
+<div class="doc-section" id="section03">
+<h3>Page preloading effect</h3>
+<hr>
+<p>It effect makes waiting process while page loading less boring for the user. Please just use this code .</p>
+<pre>
+<code data-language="html">
+<!-- Loader -->
+<div id="page-preloader"><span class="spinner"></span></div>
+<!-- Loader end -->
+</code>
+</pre>
+</div>
+<div class="doc-section" id="section04">
+<h3>Portfolio mix</h3>
+<hr>
+<p class="source-links"> <i class="fa fa-external-link-square"></i> <a target="_blank" href="https://isotope.metafizzy.co/">developer website</a></p>
+<p class="pre customBgColor"> <i class="fa fa-folder-open"></i> assets/isotope/ </p>
+<pre>
+<code data-language="html">
+
+<!-- Portfolio mix buttons -->
+<div class="row">
+<div class="col-md-12">
+	<div class="projects-filter">
+		<ul class="list-inline">
+			<li class="active" data-filter="*">All projects</li>
+			<li data-filter=".web-apps">Web apps design</li>
+			<li data-filter=".mob-apps">Mobile apps design</li>
+			<li data-filter=".prototyping">Prototyping</li>
+		</ul>
+	</div>
+</div>
+</div>
+<!-- Portfolio mix buttons -->
+
+<!-- Portfolio works -->
+<div class="row projects-wrapper">
+<div class="col-sm-6 col-xs-12 project-item web-apps">
+	<a href="02_richard_project.html" class="project">
+		<div class="project-img">
+			<img src="media/projects/img_4.jpg" alt="">
+		</div>
+		<div class="project-name">
+			<h5>UI\UX design for Shopper’s Android app</h5>
+		</div>
+		<div class="project-date">
+			<p>April, 2017</p>
+		</div>
+	</a>
+</div>
+<div class="col-sm-6 col-xs-12 project-item mob-apps">
+	<a href="02_richard_project.html" class="project">
+		<div class="project-img">
+			<img src="media/projects/img_2.jpg" alt="">
+		</div>
+		<div class="project-name">
+			<h5>Full UI redesign of my custom Android music player</h5>
+		</div>
+		<div class="project-date">
+			<p>March, 2017</p>
+		</div>
+	</a>
+</div>
+</div>
+<!-- Portfolio works -->
+
+</code>
+</pre>
+</div>
+<div class="doc-section" id="section05">
+<h3>Main Styles and Scripts</h3>
+<hr>
+<div class="styles-box">
+<strong>	Master  Styles</strong>
+<p class="pre customBgColor"> <i class="fa fa-folder-open"></i> css/master.css</p>
+<strong>	Global Theme Styles</strong>
+<p class="pre customBgColor"> <i class="fa fa-folder-open"></i> css/theme.css</p>
+<strong>Responsive Styles</strong>
+<p class="pre customBgColor"> <i class="fa fa-folder-open"></i> css/responsive.css</p>
+<strong>Theme js</strong>
+<strong><p class="pre customBgColor"> <i class="fa fa-folder-open"></i> js/theme.js</p></strong>
+<strong>Icons Fonts</strong>
+<strong><p class="pre customBgColor"> <i class="fa fa-folder-open"></i> fonts/</p></strong>
+</div>
+</div>
+<div id="section06">
+					<div class="page-header">
+						<h3>Changelogs</h3>
+						<hr class="notop">
+					</div>
+					<p>Changelogs file <a href="changelog.txt">changelog.txt</a></p>
+				</div>
+</div>
+</div>
+</div>
+</section>
+
+
+
+<!-- Syntax Highlighting -->
+<link href="assets/rainbow/css/github.css" rel="stylesheet" type="text/css" media="screen">
+<script src="assets/rainbow/js/rainbow.js"></script> 
+<script src="assets/rainbow/js/language/generic.js"></script> 
+<script src="assets/rainbow/js/language/html.js"></script> 
+<script src="assets/rainbow/js/language/css.js"></script> 
+<script src="assets/rainbow/js/language/php.js"></script> 
+<script src="assets/rainbow/js/language/javascript.js"></script>
+</body>
+</html>

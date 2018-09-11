@@ -1,0 +1,181 @@
+/*------------------------------------------------------------------
+[Table of contents]
+
+ - Colors
+
+- Project:    Richard - HTML Template
+- Version:    1.0
+- 
+- Profile:    http://themeforest.net/user/andreysokoltsov
+
+-------------------------------------------------------------------*/
+
+/* Colors */
+body {
+  color: #252525; }
+
+#page-preloader .spinner:before {
+  border-top-color: #0575e6; }
+
+.header.active {
+  color: #252525; }
+
+.header.active .change-lng li.active a {
+  color: #0575e6; }
+
+.header.active .point:after {
+  color: #0575e6; }
+
+.header.active .mobile-btn > div {
+  background: #0575e6; }
+
+.header.header-not-home {
+  color: #252525;
+  background: #fff; }
+
+.header.header-not-home .mobile-btn > div {
+  background: #0575e6; }
+
+.first-screen, .mob-menu-wrapper {
+  background: #0575e6; }
+
+.about-me-info .info-row .fa:active {
+  color: #cde3fa;
+  opacity: 1; }
+
+.btn-theme-white {
+  color: #0575e6; }
+
+.btn-theme-white:hover, .btn-theme-white:focus {
+  color: #0575e6; }
+
+.btn-theme-white:active {
+  background: #cde3fa; }
+
+.btn-theme-white-tr:hover {
+  color: #0575e6; }
+
+.btn-theme-white-tr:active {
+  background: #cde3fa;
+  border-color: #cde3fa; }
+
+.btn-theme-blue {
+  background: #0575e6; }
+
+.btn-theme-blue:hover {
+  -webkit-box-shadow: 0 10px 20px 0 rgba(5, 117, 230, 0.2);
+  box-shadow: 0 10px 20px 0 rgba(5, 117, 230, 0.2); }
+
+.btn-theme-blue:active {
+  background: #0b65bf;
+  -webkit-box-shadow: 0 10px 20px 0 rgba(5, 117, 230, 0.2);
+  box-shadow: 0 10px 20px 0 rgba(5, 117, 230, 0.2); }
+
+.btn-theme-blue-tr {
+  border-color: #0575e6;
+  color: #0575e6; }
+
+.btn-theme-blue-tr:focus {
+  border-color: #0575e6;
+  color: #0575e6; }
+
+.btn-theme-blue-tr:hover {
+  background: #0575e6;
+  color: #fff;
+  -webkit-box-shadow: 0 10px 20px 0 rgba(5, 117, 230, 0.2);
+  box-shadow: 0 10px 20px 0 rgba(5, 117, 230, 0.2); }
+
+.btn-theme-blue-tr:active {
+  background: #0b65bf;
+  -webkit-box-shadow: 0 10px 20px 0 rgba(5, 117, 230, 0.2);
+  box-shadow: 0 10px 20px 0 rgba(5, 117, 230, 0.2);
+  border-color: #0b65bf; }
+
+.project:hover .project-name {
+  color: #0575e6; }
+
+.projects-filter ul li.active {
+  color: #0575e6; }
+
+.projects-filter ul li:hover {
+  color: #0575e6; }
+
+.form-wrapper .form-group .help-block {
+  color: #252525; }
+
+.site-input:hover, .site-input:focus {
+  border-color: #0575e6 !important;
+  -webkit-box-shadow: 0 10px 20px 0 rgba(5, 117, 230, 0.2);
+  box-shadow: 0 10px 20px 0 rgba(5, 117, 230, 0.2);
+  border-right: 3px solid #0575e6 !important;
+  border-left: 3px solid #0575e6 !important; }
+
+.form-wrapper .form-group.warning .help-block, .form-wrapper .form-group.error .help-block {
+  color: #f77482; }
+
+.form-wrapper .form-group.warning .site-input, .form-wrapper .form-group.error .site-input {
+  border-color: #fff;
+  border-top-color: #f77482;
+  border-left-color: #fff;
+  border-right-color: #fff; }
+
+.form-wrapper .form-group.success .help-block-success {
+  color: #49bb7b; }
+
+.form-wrapper .form-group.success .site-input {
+  border-color: #fff;
+  border-top-color: #49bb7b;
+  border-left-color: #fff;
+  border-right-color: #fff; }
+
+.contacts-section .about-me-info .info-row .fa:hover, .modal-body .about-me-info .info-row .fa:hover {
+  color: #0575e6;
+  opacity: 1; }
+
+.contacts-section .about-me-info .info-row .fa:active, .modal-body .about-me-info .info-row .fa:active {
+  color: #0b65bf;
+  opacity: 1; }
+
+.content blockquote {
+  border-color: #0575e6; }
+
+.project-info-line .info-line .fa:hover {
+  color: #0575e6;
+  opacity: 1; }
+
+.project-info-line .info-line .fa:active {
+  color: #0b65bf;
+  opacity: 1; }
+
+.highcharts-xaxis-labels text, .highcharts-yaxis-labels text {
+  color: #252525 !important;
+  fill: #252525 !important;
+  opacity: 0.8; }
+
+.highcharts-color-0 rect {
+  fill: #26a0da; }
+
+.highcharts-color-1 rect {
+  fill: #0575e6; }
+
+.highcharts-legend-item text {
+  color: #252525 !important;
+  fill: #252525 !important; }
+
+.mCS-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  background: #3a7bd5; }
+
+.mCS-dark.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
+  background: #3a7bd5;
+  -webkit-box-shadow: 0 10px 20px 0 rgba(5, 117, 230, 0.2);
+  box-shadow: 0 10px 20px 0 rgba(5, 117, 230, 0.2); }
+
+.mCS-dark.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar {
+  background: #366ab2;
+  -webkit-box-shadow: 0 10px 20px 0 rgba(5, 117, 230, 0.2);
+  box-shadow: 0 10px 20px 0 rgba(5, 117, 230, 0.2); }
+
+.mCS-dark.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {
+  background: #3a7bd5; }
+
+/*# sourceMappingURL=maps/color.css.map */
