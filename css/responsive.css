@@ -14,7 +14,7 @@
 -------------------------------------------------------------------*/
 
 /* Media max-height */
-@media screen and (max-height: 630px) {
+@media screen and (max-height: 620px) {
   .first-screen-box .about-me-info {
     display: none; } }
 
