@@ -17,7 +17,7 @@ $subject = "Website Contact Form:  $name";
 $to = 'jdemaria43@gmail.com'; // Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.
 $email_body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nFirst Name: $name\n\nEmail Address: $email_address\n\nMessage:\n\n$message";
 $headers = "From: noreply@joedemaria.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
-//$headers .= "Reply-To: $email_address";	
+$headers .= "Reply-To: $email_address";	
 mail($to,$subject,$email_body,$headers);
 echo json_encode(array('success'=>'true'));
 return true;

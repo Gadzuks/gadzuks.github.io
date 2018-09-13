@@ -16,7 +16,7 @@ $(function() {
             var message = $('#' + thisForm).find("textarea.textarea").val();
 
             $.ajax({
-                url: "././mail/contact_me.php",
+                url: "../../mail/contact_me.php",
                 type: "POST",
                 dataType: 'json',
                 data: {
@@ -37,6 +37,9 @@ $(function() {
                         //close contact modal
                         $('#contact-me-modal').modal("hide");
 					}
+                },
+                error: function(jqXHR, status, err) {
+                    console.log('error2');
                 }
             });
 
