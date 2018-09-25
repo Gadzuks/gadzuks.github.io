@@ -123,11 +123,11 @@
   .footer {
     padding: 20px 0; } }
 
-@media screen and (max-width: 767px) and (max-height: 530px) {
-  .first-screen-box .main-avatar {
-    display: inline-block; } }
-
 @media screen and (max-width: 767px) and (max-height: 485px) {
+  .first-screen-box .main-avatar {
+    display: block; } }
+
+@media screen and (max-width: 767px) and (max-height: 450px) {
   .first-screen-box .main-avatar {
     display: none; } }
 
@@ -139,7 +139,7 @@
   .first-screen-box .main-avatar {
     display: none; } }*/
 
-@media screen and (max-width: 480px) and (max-height: 450px) {
+@media screen and (max-width: 480px) and (max-height: 350px) {
   .first-screen-box .about-me .opacity-box {
     display: none; } }
 
