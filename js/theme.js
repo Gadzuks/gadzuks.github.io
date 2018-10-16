@@ -232,8 +232,9 @@ $(document).ready(function () {
             },
             yAxis: {
                 allowDecimals: false,
+                endOnTick: false,
                 title: {
-                    text: 'Rate'
+                    text: 'Success'
                 }
             },
             tooltip: {
