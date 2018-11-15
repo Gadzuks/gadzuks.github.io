@@ -31,6 +31,20 @@ a:focus {
   outline: none !important;
   text-decoration: none; }
 
+p a {
+  color: inherit;
+  text-decoration: underline;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease; }
+
+p a:hover,
+p a:active,
+p a:focus {
+  color: #0575e6;
+  outline: none !important;
+  text-decoration: underline; }
+}
+
 ul, ol, h1, h2, h3, h4, h5, h6, p {
   margin: 0; }
 
@@ -344,6 +358,15 @@ body {
 
 .about-me-info .info-row {
   margin-bottom: 10px; }
+
+.about-me-info .info-row a {
+  text-decoration: none; }
+
+.about-me-info .info-row a:hover,
+.about-me-info .info-row a:active,
+.about-me-info .info-row a:focus {
+    color: inherit;
+    text-decoration: underline; }
 
 .about-me-info .info-row:last-child {
   margin-bottom: 0; }
