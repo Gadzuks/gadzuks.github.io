@@ -1,0 +1,100 @@
+/* Header Top Line */
+.header-name{
+  font-size: 2.5rem;
+}
+@media (max-width: 768px) {
+  .header-name {
+    font-size: 2rem;
+  }
+}
+
+/* Header Top Line Name */
+.name-resume{
+  border-bottom: 2px dotted #212529;
+}
+.name-resume:hover{
+  color: #000 !important;
+  border-color: #FFA745 ;
+}
+
+/* description: medium link */
+.header-medium{
+  text-decoration: underline;
+}
+.header-medium:hover{
+  color: #4ca87b !important;
+}
+
+/* description: dribbble link */
+.header-dribbble{
+  text-decoration: underline;
+}
+.header-dribbble:hover{
+  color: #eb4d89 !important;
+}
+
+/* Sailboat */
+.sailboat{
+  position: relative;
+  font-size: 30px;
+
+/* bobbing animation */
+  -webkit-animation: mover 1s infinite  alternate;
+  animation: mover 1s infinite  alternate;
+}
+@-webkit-keyframes mover {
+    0% { transform: translateY(0) scale(-1, 1); }
+    100% { transform: translateY(-1px) scale(-1, 1); }
+}
+@keyframes mover {
+    0% { transform: translateY(0) scale(-1, 1); }
+    100% { transform: translateY(-5px) scale(-1, 1); }
+}
+
+
+/* Section Headers */
+.section-header{
+  font-size: .95rem;
+  letter-spacing: 1px;
+}
+
+
+/* Buttons */
+.button-style{
+  font-size: .85rem;
+  letter-spacing: .5px;
+  color: rgba(0,0,0,.85);
+  border-color: #FFA745;
+  border-radius: 2px;
+  transition: .1s;
+}
+.button-style:hover{
+  color: #fff;
+  border-color: #FFA745;
+  background: rgb(255,193,123);
+  background: linear-gradient(0deg, rgba(255,193,123,1) 0%, rgba(255,167,69,1) 50%, rgba(255,193,123,1) 100%);
+  transition: .1s;
+}
+
+
+/* Experience */
+.experience-hero{
+  font-size: 1.55rem;
+  font-weight: 300px;
+}
+
+
+/* Footer */
+.footer-email:hover{
+  color: #000 !important;
+  text-decoration-color: #FFA745;
+}
+.footer-dribbble:hover{
+  color: #eb4d89 !important;
+}
+.footer-linkedin:hover{
+  color: #2e77b5 !important;
+}
+.footer-medium:hover{
+  color: #4ca87b !important;
+}
