@@ -1,6 +1,7 @@
 /* Header Top Line */
 .header-name{
   font-size: 2.5rem;
+  margin-bottom: 16px;
 }
 @media (max-width: 768px) {
   .header-name {
@@ -8,9 +9,20 @@
   }
 }
 
+/* headshot */
+.headshot{
+  border: 6px solid rgb(33, 37, 41);
+}
+
 /* Header Top Line Name */
 .name-resume{
+  font-family: 'Pacifico', cursive;
+  background: linear-gradient(180deg, #FA7A86 7.81%, #FFA746 44.79%, #FF4C62 74.48%, #C33039 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   border-bottom: 2px dotted #212529;
+  line-height: 1.2;
 }
 .name-resume:hover{
   color: #000 !important;
