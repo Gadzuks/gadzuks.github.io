@@ -1,4 +1,4 @@
-import { useRef, useMemo } from "react";
+import { useState, useRef, useMemo } from "react";
 import { useDialKit } from "dialkit";
 import DraggablePhoto from "./DraggablePhoto";
 import DitheredText from "./DitheredText";
@@ -6,6 +6,7 @@ import ScrollCrab from "./ScrollCrab";
 import BorderDrawButton from "./BorderDrawButton";
 import SpaceNeedle from "./SpaceNeedle";
 import Cloud from "./Cloud";
+import WavyUnderline from "./WavyUnderline";
 
 const ALL_PHOTOS = [
   { src: "/pictures/disc-golf-putt-oceanside-course.png", aspectRatio: "4 / 3" },
@@ -43,6 +44,7 @@ function randomizePhotos(count) {
 }
 
 export default function App() {
+  const [nameHovered, setNameHovered] = useState(false);
   const zCounter = useRef(20);
   const experienceListRef = useRef(null);
   const photos = useMemo(() => pickRandom3(ALL_PHOTOS), []);
@@ -58,9 +60,11 @@ export default function App() {
       entranceStagger: [0.15, 0, 0.5, 0.01],
     },
     underline: {
-      dotSize: [7.5, 1, 8, 0.5],
+      dotSize: [6.5, 1, 8, 0.5],
       dotGap: [4, 4, 20, 1],
-      speed: [60, 5, 60, 1],
+      waveAmplitude: [3, 1, 8, 0.5],
+      waveFrequency: [0.05, 0.05, 0.4, 0.01],
+      waveSpeed: [2, 0.5, 6, 0.25],
     },
     dither: {
       interval: [150, 50, 1000, 50],
@@ -120,20 +124,19 @@ export default function App() {
                 href="/JoeDeMaria_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group font-['Caveat'] pointer-events-auto cursor-pointer relative inline-block"
+                className="font-['Caveat'] pointer-events-auto cursor-pointer relative inline-block"
+                onMouseEnter={() => setNameHovered(true)}
+                onMouseLeave={() => setNameHovered(false)}
               >
                 Joe DeMaria
-                <span
-                  className="marching-dots absolute -bottom-4 left-0 w-full transition-colors duration-300"
-                  style={{
-                    height: `${dials.underline.dotSize}px`,
-                    backgroundImage: `radial-gradient(circle, currentColor ${dials.underline.dotSize * 0.4}px, transparent ${dials.underline.dotSize * 0.4}px)`,
-                    backgroundSize: `${dials.underline.dotGap + dials.underline.dotSize}px ${dials.underline.dotSize}px`,
-                    animationName: 'march',
-                    animationDuration: `${dials.underline.speed / 10}s`,
-                    animationTimingFunction: 'linear',
-                    animationIterationCount: 'infinite',
-                  }}
+                <WavyUnderline
+                  className="absolute -bottom-5 left-0 w-full"
+                  dotSize={dials.underline.dotSize}
+                  dotGap={dials.underline.dotGap}
+                  waveAmplitude={dials.underline.waveAmplitude}
+                  waveFrequency={dials.underline.waveFrequency}
+                  waveSpeed={dials.underline.waveSpeed}
+                  hovered={nameHovered}
                 />
               </a>
             </h1>
