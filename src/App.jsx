@@ -66,11 +66,11 @@ export default function App() {
       amount: [0.05, 0, 1, 0.05],
     },
     crab: {
-      wobbleMax: [16, 0, 30, 1],
-      springStiffness: [610, 50, 800, 10],
-      springDamping: [40, 5, 50, 1],
+      wobbleMax: [8, 0, 20, 1],
+      springStiffness: [200, 50, 400, 10],
+      springDamping: [25, 5, 50, 1],
       idleNudge: [16, 0, 20, 1],
-      idleInterval: [2000, 1000, 8000, 500],
+      idleInterval: [1500, 1000, 10000, 500],
     },
     grid: {
       cols: [40, 10, 50, 1],
@@ -194,17 +194,82 @@ export default function App() {
       {/* Experience */}
       <section className="px-6 md:px-16 lg:px-24 max-w-6xl mx-auto py-32">
         <div ref={experienceListRef} className="relative">
-          <ScrollCrab
-            targetRef={experienceListRef}
-            wobbleMax={dials.crab.wobbleMax}
-            springStiffness={dials.crab.springStiffness}
-            springDamping={dials.crab.springDamping}
-            idleNudge={dials.crab.idleNudge}
-            idleInterval={dials.crab.idleInterval}
-          />
-          <h2 className="text-sm font-semibold tracking-widest text-gray-900 border-b border-gray-900 inline-block pb-1 mb-20">
+          <h2 className="text-sm font-semibold tracking-widest text-gray-900 border-b border-gray-900 inline-block pb-1 mb-4">
             EXPERIENCE
           </h2>
+          <p className="text-gray-500 mb-4">Over a decade thinking about people and how I can make their life 1% better using technology.</p>
+
+          <div className="relative h-8 mb-1">
+            <ScrollCrab
+              targetRef={experienceListRef}
+              wobbleMax={dials.crab.wobbleMax}
+              springStiffness={dials.crab.springStiffness}
+              springDamping={dials.crab.springDamping}
+              idleNudge={dials.crab.idleNudge}
+              idleInterval={dials.crab.idleInterval}
+              leftRange={["0%", "18%"]}
+              size="text-lg md:text-xl"
+              name="Clawdia"
+              description="the eldest daughter, always trailing behind"
+              font="font-serif italic"
+            />
+            <ScrollCrab
+              targetRef={experienceListRef}
+              wobbleMax={dials.crab.wobbleMax}
+              springStiffness={dials.crab.springStiffness}
+              springDamping={dials.crab.springDamping}
+              idleNudge={dials.crab.idleNudge}
+              idleInterval={dials.crab.idleInterval + 600}
+              leftRange={["20%", "30%"]}
+              sineOffset={0.2}
+              size="text-3xl md:text-4xl"
+              name="Big Pinch"
+              description="the dad, won't be rushed"
+              font="font-[Caveat] text-base"
+            />
+            <ScrollCrab
+              targetRef={experienceListRef}
+              wobbleMax={dials.crab.wobbleMax}
+              springStiffness={dials.crab.springStiffness}
+              springDamping={dials.crab.springDamping}
+              idleNudge={dials.crab.idleNudge}
+              idleInterval={dials.crab.idleInterval + 1100}
+              leftRange={["33%", "55%"]}
+              sineOffset={0.4}
+              size="text-base md:text-lg"
+              name="Scooter"
+              description="the baby, fastest legs in the family"
+              font="font-mono tracking-tight"
+            />
+            <ScrollCrab
+              targetRef={experienceListRef}
+              wobbleMax={dials.crab.wobbleMax}
+              springStiffness={dials.crab.springStiffness}
+              springDamping={dials.crab.springDamping}
+              idleNudge={dials.crab.idleNudge}
+              idleInterval={dials.crab.idleInterval + 400}
+              leftRange={["58%", "72%"]}
+              sineOffset={0.6}
+              size="text-2xl md:text-3xl"
+              name="Sandy"
+              description="the mom, always a few steps ahead"
+              font="font-sans tracking-widest uppercase text-xs"
+            />
+            <ScrollCrab
+              targetRef={experienceListRef}
+              wobbleMax={dials.crab.wobbleMax}
+              springStiffness={dials.crab.springStiffness}
+              springDamping={dials.crab.springDamping}
+              idleNudge={dials.crab.idleNudge}
+              idleInterval={dials.crab.idleInterval + 1500}
+              leftRange={["75%", "90%"]}
+              sineOffset={0.8}
+              size="text-xl md:text-2xl"
+              name="Shelby"
+              description="the teen, out front pretending not to know them"
+              font="font-serif"
+            />
+          </div>
 
           <div className="space-y-0 divide-y divide-gray-200">
           {[

@@ -8,7 +8,7 @@ Personal portfolio site for Joe DeMaria.
 - **Styling:** Tailwind CSS 4 (via `@tailwindcss/vite` plugin)
 - **Animation:** Motion (framer-motion successor) + DialKit for tuning
 - **Hosting:** GitHub Pages with custom domain (joedemaria.com)
-- **Deploy:** GitHub Actions on push to `redesign` branch
+- **Deploy:** GitHub Actions on push to `master` branch
 
 ## Commands
 
