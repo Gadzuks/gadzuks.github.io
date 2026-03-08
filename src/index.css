@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@keyframes march {
+  from { background-position: 0 0; }
+  to { background-position: 100% 0; }
+}
+
+.marching-dots {
+  color: rgb(17 24 39);
+  animation-play-state: paused !important;
+}
+
+.group:hover .marching-dots {
+  color: rgb(251 146 60);
+  animation-play-state: running !important;
+}
