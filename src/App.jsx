@@ -5,6 +5,7 @@ import DitheredText from "./DitheredText";
 import ScrollCrab from "./ScrollCrab";
 import BorderDrawButton from "./BorderDrawButton";
 import SpaceNeedle from "./SpaceNeedle";
+import Cloud from "./Cloud";
 
 const ALL_PHOTOS = [
   { src: "/pictures/disc-golf-putt-oceanside-course.png", aspectRatio: "4 / 3" },
@@ -315,7 +316,7 @@ export default function App() {
 
       {/* Footer */}
       <footer className="border-t border-gray-200 px-6 md:px-16 lg:px-24 max-w-6xl mx-auto py-20">
-        <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-8">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-8">
           <div>
             <p className="text-sm font-semibold tracking-widest text-gray-400 mb-2">I'M AVAILABLE</p>
             <h2 className="text-4xl md:text-5xl font-bold font-['Caveat']">Let's Connect!</h2>
@@ -324,9 +325,16 @@ export default function App() {
             <a href="mailto:jdemaria43@gmail.com" className="text-lg font-semibold underline decoration-2 decoration-transparent hover:decoration-[#FFA745] transition-all duration-200">
               jdemaria43@gmail.com
             </a>
-            <div className="flex items-center gap-3 mt-4 md:justify-end text-gray-500">
+            <div className="flex items-center gap-2 mt-2 md:justify-end text-gray-500">
               <a href="https://linkedin.com/in/joedemaria" target="_blank" rel="noopener noreferrer" className="hover:text-[#2E77B5] underline decoration-2 decoration-transparent hover:decoration-[#2E77B5] transition-all duration-200">LinkedIn</a>
-              <SpaceNeedle size={34} className="text-gray-400" />
+              <div className="relative overflow-hidden w-12 h-12 flex items-end justify-center pointer-events-none">
+                {/* White knockout layer so clouds are occluded */}
+                <SpaceNeedle size={42} className="text-white relative z-[5]" />
+                {/* Visible needle on top */}
+                <SpaceNeedle size={42} className="text-gray-400 absolute bottom-0 left-1/2 -translate-x-1/2 z-10" />
+                <Cloud variant={0} size={14} filled className="absolute text-gray-400 z-[15]" style={{ top: 16, animationName: "cloud-drift", animationDuration: "14s", animationTimingFunction: "linear", animationIterationCount: "infinite" }} />
+                <Cloud variant={2} size={10} className="absolute text-gray-400/70 z-[1]" style={{ top: 24, animationName: "cloud-drift", animationDuration: "20s", animationTimingFunction: "linear", animationIterationCount: "infinite", animationDelay: "-8s" }} />
+              </div>
               <span>Seattle, WA</span>
             </div>
           </div>

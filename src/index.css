@@ -14,3 +14,8 @@
   color: rgb(251 146 60);
   animation-play-state: running !important;
 }
+
+@keyframes cloud-drift {
+  from { translate: 300% 0; }
+  to { translate: -300% 0; }
+}
