@@ -225,8 +225,8 @@ export default function App() {
               leftRange={["0%", "18%"]}
               size="text-lg md:text-xl"
               name="Clawdia"
-              description="the eldest daughter, always trailing behind"
-              font="font-serif italic"
+              font="font-['Pacifico'] text-sm"
+              clickAnimation="dip"
             />
             <ScrollCrab
               targetRef={experienceListRef}
@@ -239,8 +239,8 @@ export default function App() {
               sineOffset={0.2}
               size="text-3xl md:text-4xl"
               name="Big Pinch"
-              description="the dad, won't be rushed"
-              font="font-[Caveat] text-base"
+              font="font-['Permanent_Marker'] text-base"
+              clickAnimation="shake"
             />
             <ScrollCrab
               targetRef={experienceListRef}
@@ -253,8 +253,8 @@ export default function App() {
               sineOffset={0.4}
               size="text-base md:text-lg"
               name="Scooter"
-              description="the baby, fastest legs in the family"
-              font="font-mono tracking-tight"
+              font="font-['Fredoka'] text-sm font-bold"
+              clickAnimation="dash"
             />
             <ScrollCrab
               targetRef={experienceListRef}
@@ -267,8 +267,8 @@ export default function App() {
               sineOffset={0.6}
               size="text-2xl md:text-3xl"
               name="Sandy"
-              description="the mom, always a few steps ahead"
-              font="font-sans tracking-widest uppercase text-xs"
+              font="font-['Great_Vibes'] text-base"
+              clickAnimation="spin"
             />
             <ScrollCrab
               targetRef={experienceListRef}
@@ -281,8 +281,8 @@ export default function App() {
               sineOffset={0.8}
               size="text-xl md:text-2xl"
               name="Shelby"
-              description="the teen, out front pretending not to know them"
-              font="font-serif"
+              font="font-['Silkscreen'] text-xs"
+              clickAnimation="tilt"
             />
           </div>
 
@@ -293,19 +293,26 @@ export default function App() {
             { company: "New Relic", role: "Senior → Lead Product Designer", dates: "2021 – 2024", url: "https://newrelic.com", brandColor: "#1CE783" },
             { company: "Pipeline CRM", role: "Product Designer", dates: "2019 – 2021", url: "https://pipelinecrm.com", brandColor: "#0076BC" },
           ].map((job) => (
-            <a
+            <div
               key={job.company}
-              href={job.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group py-6 flex justify-between items-baseline"
+              className="py-6 flex justify-between items-baseline"
             >
               <div>
-                <h3 className="font-bold text-lg transition-colors duration-200 group-hover:text-[var(--brand)]" style={{ "--brand": job.brandColor }}>{job.company}</h3>
+                <h3 className="text-lg">
+                  <a
+                    href={job.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold transition-colors duration-200 hover:text-[var(--brand)]"
+                    style={{ "--brand": job.brandColor }}
+                  >
+                    {job.company}
+                  </a>
+                </h3>
                 <p className="text-sm text-gray-500">{job.role}</p>
               </div>
               <p className="text-sm text-gray-400">{job.dates}</p>
-            </a>
+            </div>
           ))}
           <div className="py-6">
             <p className="text-gray-400 text-sm">+ Social Report, VPGame, and Microsoft (contracts)</p>
