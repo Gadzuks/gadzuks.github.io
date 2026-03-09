@@ -67,8 +67,10 @@ export default function App() {
       waveSpeed: [2, 0.5, 6, 0.25],
     },
     dither: {
-      interval: [150, 50, 1000, 50],
+      interval: [750, 50, 2000, 50],
       amount: [0.05, 0, 1, 0.05],
+      speed: [100, 10, 200, 10],
+      burstCount: [3, 1, 10, 1],
     },
     crab: {
       wobbleMax: [8, 0, 20, 1],
@@ -142,15 +144,16 @@ export default function App() {
             </h1>
             <p className="mt-8 text-lg md:text-xl text-gray-600 leading-relaxed pointer-events-auto">
               I'm a Product Designer dedicated to building incredible user
-              experiences. Currently working at{" "}
+              experiences. Working to transform marketing at{" "}
               <DitheredText
                 text="Hightouch"
                 href="https://hightouch.com"
                 className="text-gray-600 hover:text-[#01C167] transition-colors duration-300"
                 interval={dials.dither.interval}
                 amount={dials.dither.amount}
-              />{" "}
-              to transform marketing.
+                speed={dials.dither.speed}
+                burstCount={dials.dither.burstCount}
+              />.
             </p>
           </div>
         </div>
