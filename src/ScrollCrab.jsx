@@ -100,9 +100,15 @@ export default function ScrollCrab({
   const [animating, setAnimating] = useState(false);
   const tapped = activeCrab === name;
 
+  const isTouchRef = useRef(false);
+
   const handleClick = useCallback(async () => {
     if (animating || !clickAnimation || !CLICK_ANIMATIONS[clickAnimation]) return;
-    setActiveCrab(name);
+    // Only show sticky tooltip on touch devices
+    if (isTouchRef.current) {
+      setActiveCrab(name);
+      isTouchRef.current = false;
+    }
     setAnimating(true);
     try {
       await CLICK_ANIMATIONS[clickAnimation](animate);
@@ -127,6 +133,7 @@ export default function ScrollCrab({
       className={`absolute top-0 ${size} select-none ${clickAnimation ? "cursor-pointer" : "cursor-default"} group`}
       ref={scope}
       onClick={handleClick}
+      onTouchStart={() => { isTouchRef.current = true; }}
     >
       <span className="crab-emoji inline-block">🦀</span>
       {name && (
