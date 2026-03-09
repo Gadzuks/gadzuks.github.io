@@ -54,6 +54,8 @@ export default function ScrollCrab({
   name,
   font = "font-sans",
   clickAnimation,
+  activeCrab,
+  setActiveCrab,
 }) {
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -96,16 +98,28 @@ export default function ScrollCrab({
   // Click animation via useAnimate
   const [scope, animate] = useAnimate();
   const [animating, setAnimating] = useState(false);
+  const tapped = activeCrab === name;
 
   const handleClick = useCallback(async () => {
     if (animating || !clickAnimation || !CLICK_ANIMATIONS[clickAnimation]) return;
+    setActiveCrab(name);
     setAnimating(true);
     try {
       await CLICK_ANIMATIONS[clickAnimation](animate);
     } finally {
       setAnimating(false);
     }
-  }, [animating, clickAnimation, animate]);
+  }, [animating, clickAnimation, animate, name, setActiveCrab]);
+
+  // Dismiss tooltip on scroll
+  useEffect(() => {
+    if (!tapped) return;
+    function onScroll() {
+      setActiveCrab(null);
+    }
+    window.addEventListener("scroll", onScroll, { passive: true, once: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [tapped, setActiveCrab]);
 
   return (
     <motion.div
@@ -116,7 +130,7 @@ export default function ScrollCrab({
     >
       <span className="crab-emoji inline-block">🦀</span>
       {name && (
-        <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+        <div className={`absolute left-1/2 -translate-x-1/2 bottom-full mb-2 transition-opacity pointer-events-none ${tapped ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
           <div className="px-3 py-1.5 bg-gray-900 text-white rounded-lg shadow-lg whitespace-nowrap text-center">
             <div className={`${font}`}>{name}</div>
           </div>

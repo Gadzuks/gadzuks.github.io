@@ -2,7 +2,9 @@ import { useState } from "react";
 import { motion } from "motion/react";
 
 export default function DraggablePhoto({
-  src,
+  src340,
+  src680,
+  placeholder,
   initialRotation,
   entranceDelay,
   dragScale,
@@ -14,6 +16,7 @@ export default function DraggablePhoto({
   onBringToFront,
 }) {
   const [zIndex, setZIndex] = useState(photoStyle.zIndex ?? 1);
+  const [loaded, setLoaded] = useState(false);
 
   function handleDragStart() {
     if (onBringToFront) {
@@ -67,17 +70,37 @@ export default function DraggablePhoto({
         whileHover={{ scale: hoverScale }}
         onDragStart={handleDragStart}
         draggable={false}
-        className="rounded-2xl overflow-hidden shadow-xl cursor-grab active:cursor-grabbing select-none touch-none"
+        className="relative rounded-2xl overflow-hidden shadow-xl cursor-grab active:cursor-grabbing select-none touch-none"
         style={{
           aspectRatio: photoStyle.aspectRatio,
           rotate: initialRotation,
         }}
       >
+        {/* Blur placeholder — renders instantly from base64 */}
         <img
-          src={src}
+          src={placeholder}
           alt=""
           draggable={false}
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{
+            filter: "blur(20px)",
+            transform: "scale(1.1)",
+            opacity: loaded ? 0 : 1,
+            transition: "opacity 0.4s ease-out",
+          }}
+        />
+        {/* Real image with responsive srcset */}
+        <img
+          srcSet={`${src340} 340w, ${src680} 680w`}
+          sizes={photoStyle.width}
+          alt=""
+          draggable={false}
+          onLoad={() => setLoaded(true)}
           className="w-full h-full object-cover"
+          style={{
+            opacity: loaded ? 1 : 0,
+            transition: "opacity 0.4s ease-out",
+          }}
         />
       </motion.div>
     </motion.div>

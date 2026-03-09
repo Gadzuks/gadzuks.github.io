@@ -9,6 +9,7 @@ export default function WavyUnderline({
   waveAmplitude = 3,
   waveFrequency = 0.15,
   waveSpeed = 2,
+  dotTaper = 0,
   hovered = false,
   className = "",
 }) {
@@ -19,11 +20,11 @@ export default function WavyUnderline({
   const lastTimeRef = useRef(null);
   const fadeRef = useRef(0);
   const hoveredRef = useRef(hovered);
-  const propsRef = useRef({ dotSize, dotGap, waveAmplitude, waveFrequency, waveSpeed });
+  const propsRef = useRef({ dotSize, dotGap, waveAmplitude, waveFrequency, waveSpeed, dotTaper });
 
   // Keep refs in sync with props
   hoveredRef.current = hovered;
-  propsRef.current = { dotSize, dotGap, waveAmplitude, waveFrequency, waveSpeed };
+  propsRef.current = { dotSize, dotGap, waveAmplitude, waveFrequency, waveSpeed, dotTaper };
 
   const height = dotSize + waveAmplitude * 2;
 
@@ -34,7 +35,7 @@ export default function WavyUnderline({
       const wrapper = wrapperRef.current;
       if (!canvas || !wrapper) return;
 
-      const { dotSize, dotGap, waveAmplitude, waveFrequency, waveSpeed } = propsRef.current;
+      const { dotSize, dotGap, waveAmplitude, waveFrequency, waveSpeed, dotTaper } = propsRef.current;
       const isHovered = hoveredRef.current;
       const dotRadius = dotSize * 0.4;
       const h = dotSize + waveAmplitude * 2;
@@ -72,14 +73,23 @@ export default function WavyUnderline({
       const b = Math.round(COLOR_IDLE[2] + (COLOR_HOVER[2] - COLOR_IDLE[2]) * fade);
       ctx.fillStyle = `rgb(${r},${g},${b})`;
 
-      // Draw dots along sine wave
+      // Draw dots flowing along sine wave
       const centerY = h / 2;
       const step = dotGap + dotSize;
+      // Dots shift horizontally with phase (flowing left to right)
+      // Convert phase (in radians) to pixel offset: phase / frequency = pixels
+      const pixelOffset = waveFrequency > 0 ? phaseRef.current / waveFrequency : 0;
+      const offset = ((pixelOffset % step) + step) % step;
 
-      for (let x = dotRadius; x < w; x += step) {
+      for (let x = -step + offset + dotRadius; x < w + step; x += step) {
+        if (x < -dotRadius || x > w + dotRadius) continue;
+        // Taper: dots shrink from left to right (0 = uniform, 1 = shrink to nothing)
+        const t = w > 0 ? Math.max(0, Math.min(1, x / w)) : 0;
+        const r = dotRadius * (1 - t * dotTaper);
+        if (r < 0.5) continue;
         const y = centerY + Math.sin(x * waveFrequency + phaseRef.current) * waveAmplitude;
         ctx.beginPath();
-        ctx.arc(x, y, dotRadius, 0, Math.PI * 2);
+        ctx.arc(x, y, r, 0, Math.PI * 2);
         ctx.fill();
       }
 

@@ -42,17 +42,17 @@ export default function BorderDrawButton({
     dropRadius, dropStrength, waveSpeed, damping, speedNorm, shadeStrength,
   };
 
-  // Track cursor continuously while hovering
+  // Track cursor/touch continuously while active
   useEffect(() => {
     const button = buttonRef.current;
     if (!button || !hovered) return;
 
-    function onMove(e) {
+    function updateCursor(clientX, clientY) {
       const rect = button.getBoundingClientRect();
       const now = performance.now();
       const cursor = cursorRef.current;
-      const newX = e.clientX - rect.left - BORDER;
-      const newY = e.clientY - rect.top - BORDER;
+      const newX = clientX - rect.left - BORDER;
+      const newY = clientY - rect.top - BORDER;
 
       const dt = (now - cursor.lastTime) / 1000;
       if (dt > 0 && dt < 0.1) {
@@ -68,8 +68,21 @@ export default function BorderDrawButton({
       cursor.lastTime = now;
     }
 
-    button.addEventListener("pointermove", onMove);
-    return () => button.removeEventListener("pointermove", onMove);
+    function onPointerMove(e) {
+      updateCursor(e.clientX, e.clientY);
+    }
+
+    function onTouchMove(e) {
+      const touch = e.touches[0];
+      if (touch) updateCursor(touch.clientX, touch.clientY);
+    }
+
+    button.addEventListener("pointermove", onPointerMove);
+    button.addEventListener("touchmove", onTouchMove, { passive: true });
+    return () => {
+      button.removeEventListener("pointermove", onPointerMove);
+      button.removeEventListener("touchmove", onTouchMove);
+    };
   }, [hovered]);
 
   // Single animation loop
@@ -276,6 +289,20 @@ export default function BorderDrawButton({
     setHovered(true);
   }
 
+  function handleTouchStart(e) {
+    const touch = e.touches[0];
+    if (!touch || !buttonRef.current) return;
+    const rect = buttonRef.current.getBoundingClientRect();
+    cursorRef.current = {
+      x: touch.clientX - rect.left - BORDER,
+      y: touch.clientY - rect.top - BORDER,
+      vx: 0,
+      vy: 0,
+      lastTime: performance.now(),
+    };
+    setHovered(true);
+  }
+
   return (
     <motion.a
       ref={buttonRef}
@@ -284,7 +311,9 @@ export default function BorderDrawButton({
       rel="noopener noreferrer"
       onHoverStart={handleHoverStart}
       onHoverEnd={() => setHovered(false)}
-      className="relative inline-block border border-gray-900 px-44 py-24 text-sm font-semibold tracking-wide text-gray-900 leading-none overflow-hidden"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={() => setHovered(false)}
+      className="relative inline-block border border-gray-900 px-16 py-12 md:px-44 md:py-24 text-sm font-semibold tracking-wide text-gray-900 leading-none overflow-hidden"
     >
       <canvas
         ref={canvasRef}

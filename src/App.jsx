@@ -8,14 +8,7 @@ import SpaceNeedle from "./SpaceNeedle";
 import Cloud from "./Cloud";
 import WavyUnderline from "./WavyUnderline";
 
-const ALL_PHOTOS = [
-  { src: "/pictures/disc-golf-putt-oceanside-course.png", aspectRatio: "4 / 3" },
-  { src: "/pictures/crabbing-on-the-beach-double-catch.png", aspectRatio: "3 / 4" },
-  { src: "/pictures/hilltop-hike-ocean-vista.png", aspectRatio: "4 / 3" },
-  { src: "/pictures/porch-steps-with-pumpkins-fall.png", aspectRatio: "4 / 3" },
-  { src: "/pictures/pinnacle-rock-viewpoint-galapagos.png", aspectRatio: "3 / 4" },
-  { src: "/pictures/groom-portrait-navy-suit-wedding-day.png", aspectRatio: "2 / 3" },
-];
+import ALL_PHOTOS from "./photoManifest.json";
 
 const SLOTS = [
   { width: "clamp(160px, 18vw, 340px)", left: "22%", top: "35%" },
@@ -45,6 +38,7 @@ function randomizePhotos(count) {
 
 export default function App() {
   const [nameHovered, setNameHovered] = useState(false);
+  const [activeCrab, setActiveCrab] = useState(null);
   const zCounter = useRef(20);
   const experienceListRef = useRef(null);
   const photos = useMemo(() => pickRandom3(ALL_PHOTOS), []);
@@ -60,11 +54,12 @@ export default function App() {
       entranceStagger: [0.15, 0, 0.5, 0.01],
     },
     underline: {
-      dotSize: [6.5, 1, 8, 0.5],
+      dotSize: [7.5, 1, 8, 0.5],
       dotGap: [4, 4, 20, 1],
       waveAmplitude: [3, 1, 8, 0.5],
       waveFrequency: [0.05, 0.05, 0.4, 0.01],
-      waveSpeed: [2, 0.5, 6, 0.25],
+      waveSpeed: [0.75, 0.5, 6, 0.25],
+      dotTaper: [0.3, 0, 1, 0.05],
     },
     dither: {
       interval: [750, 50, 2000, 50],
@@ -110,8 +105,10 @@ export default function App() {
           <div className="relative w-full h-full translate-x-[25%] -translate-y-[15%] md:translate-x-0 md:translate-y-0">
           {photos.map((photo, i) => (
             <DraggablePhoto
-              key={photo.src}
-              src={photo.src}
+              key={photo.src680}
+              src340={photo.src340}
+              src680={photo.src680}
+              placeholder={photo.placeholder}
               initialRotation={initial.rotations[i]}
               entranceDelay={i * dials.drag.entranceStagger}
               dragScale={dials.drag.scale}
@@ -137,6 +134,8 @@ export default function App() {
                 className="font-['Caveat'] pointer-events-auto cursor-pointer relative inline-block"
                 onMouseEnter={() => setNameHovered(true)}
                 onMouseLeave={() => setNameHovered(false)}
+                onTouchStart={() => setNameHovered(true)}
+                onTouchEnd={() => setNameHovered(false)}
               >
                 Joe DeMaria
                 <WavyUnderline
@@ -146,6 +145,7 @@ export default function App() {
                   waveAmplitude={dials.underline.waveAmplitude}
                   waveFrequency={dials.underline.waveFrequency}
                   waveSpeed={dials.underline.waveSpeed}
+                  dotTaper={dials.underline.dotTaper}
                   hovered={nameHovered}
                 />
               </a>
@@ -227,6 +227,8 @@ export default function App() {
               name="Clawdia"
               font="font-['Pacifico'] text-sm"
               clickAnimation="dip"
+              activeCrab={activeCrab}
+              setActiveCrab={setActiveCrab}
             />
             <ScrollCrab
               targetRef={experienceListRef}
@@ -241,6 +243,8 @@ export default function App() {
               name="Big Pinch"
               font="font-['Permanent_Marker'] text-base"
               clickAnimation="shake"
+              activeCrab={activeCrab}
+              setActiveCrab={setActiveCrab}
             />
             <ScrollCrab
               targetRef={experienceListRef}
@@ -255,6 +259,8 @@ export default function App() {
               name="Scooter"
               font="font-['Fredoka'] text-sm font-bold"
               clickAnimation="dash"
+              activeCrab={activeCrab}
+              setActiveCrab={setActiveCrab}
             />
             <ScrollCrab
               targetRef={experienceListRef}
@@ -269,6 +275,8 @@ export default function App() {
               name="Sandy"
               font="font-['Great_Vibes'] text-base"
               clickAnimation="spin"
+              activeCrab={activeCrab}
+              setActiveCrab={setActiveCrab}
             />
             <ScrollCrab
               targetRef={experienceListRef}
@@ -283,6 +291,8 @@ export default function App() {
               name="Shelby"
               font="font-['Silkscreen'] text-xs"
               clickAnimation="tilt"
+              activeCrab={activeCrab}
+              setActiveCrab={setActiveCrab}
             />
           </div>
 
