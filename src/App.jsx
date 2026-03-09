@@ -79,13 +79,21 @@ export default function App() {
       idleNudge: [16, 0, 20, 1],
       idleInterval: [1500, 1000, 10000, 500],
     },
-    grid: {
-      cols: [40, 10, 50, 1],
-      rows: [12, 3, 15, 1],
-      waveSpeed: [6, 1, 10, 0.5],
-      waveFreq: [0.08, 0.02, 0.2, 0.01],
-      amplitude: [3.5, 1, 8, 0.5],
-      damping: [0.02, 0.005, 0.05, 0.005],
+    btnGrid: {
+      cols: [50, 10, 80, 1],
+      rows: [20, 3, 30, 1],
+      gap: [1.75, 0, 5, 0.25],
+      opacity: [0.6, 0.1, 1, 0.05],
+      textPadX: [8, 0, 20, 1],
+      textPadY: [4, 0, 12, 1],
+    },
+    btnWater: {
+      dropRadius: [60, 20, 200, 5],
+      dropStrength: [0.65, 0.05, 2, 0.05],
+      waveSpeed: [0.5, 0.5, 4, 0.1],
+      damping: [0.965, 0.9, 0.999, 0.001],
+      speedNorm: [300, 100, 1000, 50],
+      shadeStrength: [0.5, 0, 10, 0.5],
     },
   });
 
@@ -307,12 +315,19 @@ export default function App() {
           <div className="mt-16 text-center">
             <BorderDrawButton
               href="/JoeDeMaria_Resume.pdf"
-              cols={dials.grid.cols}
-              rows={dials.grid.rows}
-              waveSpeed={dials.grid.waveSpeed}
-              waveFreq={dials.grid.waveFreq}
-              amplitude={dials.grid.amplitude}
-              damping={dials.grid.damping}
+              cols={dials.btnGrid.cols}
+              rows={dials.btnGrid.rows}
+              gap={dials.btnGrid.gap}
+              opacity={dials.btnGrid.opacity}
+              textPadX={dials.btnGrid.textPadX}
+              textPadY={dials.btnGrid.textPadY}
+              dropRadius={dials.btnWater.dropRadius}
+              dropStrength={dials.btnWater.dropStrength}
+              waveSpeed={dials.btnWater.waveSpeed}
+              damping={dials.btnWater.damping}
+              speedNorm={dials.btnWater.speedNorm}
+              shadeStrength={dials.btnWater.shadeStrength}
+
             >
               VIEW MY RESUME
             </BorderDrawButton>
