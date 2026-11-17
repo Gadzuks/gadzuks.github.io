@@ -309,6 +309,7 @@ export default function BorderDrawButton({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      data-play="swirl"
       onHoverStart={handleHoverStart}
       onHoverEnd={() => setHovered(false)}
       onTouchStart={handleTouchStart}

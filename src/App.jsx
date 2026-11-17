@@ -7,6 +7,7 @@ import BorderDrawButton from "./BorderDrawButton";
 import SpaceNeedle from "./SpaceNeedle";
 import Cloud from "./Cloud";
 import WavyUnderline from "./WavyUnderline";
+import CursorSwarm from "./CursorSwarm";
 
 import ALL_PHOTOS from "./photoManifest.json";
 
@@ -51,7 +52,6 @@ export default function App() {
       elastic: [1, 0, 1, 0.1],
       power: [0.1, 0, 2, 0.1],
       timeConstant: [100, 100, 2000, 50],
-      entranceStagger: [0.15, 0, 0.5, 0.01],
     },
     underline: {
       dotSize: [7.5, 1, 8, 0.5],
@@ -66,6 +66,14 @@ export default function App() {
       amount: [0.05, 0, 1, 0.05],
       speed: [100, 10, 200, 10],
       burstCount: [3, 1, 10, 1],
+    },
+    swarm: {
+      maxCursors: [10, 1, 24, 1],
+      stiffness: [45, 10, 250, 5],
+      damping: [10, 4, 30, 1],
+      cursorSize: [1, 0.5, 2, 0.05],
+      buildSpeed: [1, 0.3, 3, 0.1],
+      scrollSpeed: [2, 0.5, 5, 0.1],
     },
     crab: {
       wobbleMax: [8, 0, 20, 1],
@@ -110,7 +118,6 @@ export default function App() {
               src680={photo.src680}
               placeholder={photo.placeholder}
               initialRotation={initial.rotations[i]}
-              entranceDelay={i * dials.drag.entranceStagger}
               dragScale={dials.drag.scale}
               hoverScale={dials.drag.hoverScale}
               dragElastic={dials.drag.elastic}
@@ -126,12 +133,13 @@ export default function App() {
         {/* Text content */}
         <div className="relative flex items-center min-h-screen md:justify-end px-6 md:px-16 lg:px-24 max-w-6xl mx-auto pointer-events-none">
           <div className="pt-[35vh] md:pt-0 md:w-1/2 md:pl-8">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
+            <h1 data-build="write" className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
               <a
                 href="/JoeDeMaria_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-['Caveat'] pointer-events-auto cursor-pointer relative inline-block"
+                data-play="sweep"
                 onMouseEnter={() => setNameHovered(true)}
                 onMouseLeave={() => setNameHovered(false)}
                 onTouchStart={() => setNameHovered(true)}
@@ -150,7 +158,7 @@ export default function App() {
                 />
               </a>
             </h1>
-            <p className="mt-8 text-lg md:text-xl text-gray-600 leading-relaxed pointer-events-auto">
+            <p data-build="type" className="mt-8 text-lg md:text-xl text-gray-600 leading-relaxed pointer-events-auto">
               I'm a Product Designer dedicated to building incredible user
               experiences. Working to transform marketing at{" "}
               <DitheredText
@@ -169,7 +177,7 @@ export default function App() {
 
       {/* Case Studies */}
       <section className="px-6 md:px-16 lg:px-24 max-w-6xl mx-auto py-32">
-        <h2 className="text-sm font-semibold tracking-widest text-gray-900 border-b border-gray-900 inline-block pb-1 mb-20">
+        <h2 data-build="box" className="text-sm font-semibold tracking-widest text-gray-900 border-b border-gray-900 inline-block pb-1 mb-20">
           CASE STUDIES
         </h2>
 
@@ -180,11 +188,11 @@ export default function App() {
             rel="noopener noreferrer"
             className="group block py-12 first:pt-0"
           >
-            <p className="text-sm text-gray-400 mb-3">New Relic</p>
-            <h3 className="text-2xl md:text-4xl font-bold mb-3 group-hover:text-gray-500 transition-colors">
+            <p data-build="stamp" className="text-sm text-gray-400 mb-3 w-fit">New Relic</p>
+            <h3 data-build="type" className="text-2xl md:text-4xl font-bold mb-3 group-hover:text-gray-500 transition-colors">
               The Evolution of APM Customer Experience
             </h3>
-            <p className="text-gray-500">
+            <p data-build="box" className="text-gray-500 w-fit">
               Redesigned summary tiles to surface actionable insights, increasing vulnerability management add-on conversion by over 400%.
             </p>
           </a>
@@ -195,11 +203,11 @@ export default function App() {
             rel="noopener noreferrer"
             className="group block py-12"
           >
-            <p className="text-sm text-gray-400 mb-3">Social Report</p>
-            <h3 className="text-2xl md:text-4xl font-bold mb-3 group-hover:text-gray-500 transition-colors">
+            <p data-build="stamp" className="text-sm text-gray-400 mb-3 w-fit">Social Report</p>
+            <h3 data-build="type" className="text-2xl md:text-4xl font-bold mb-3 group-hover:text-gray-500 transition-colors">
               Social Media Management Product Design
             </h3>
-            <p className="text-gray-500">
+            <p data-build="box" className="text-gray-500 w-fit">
               Designing a comprehensive social media management platform.
             </p>
           </a>
@@ -209,12 +217,12 @@ export default function App() {
       {/* Experience */}
       <section className="px-6 md:px-16 lg:px-24 max-w-6xl mx-auto py-32">
         <div ref={experienceListRef} className="relative">
-          <h2 className="text-sm font-semibold tracking-widest text-gray-900 border-b border-gray-900 inline-block pb-1 mb-4">
+          <h2 data-build="box" className="text-sm font-semibold tracking-widest text-gray-900 border-b border-gray-900 inline-block pb-1 mb-4">
             EXPERIENCE
           </h2>
-          <p className="text-gray-500 mb-4">Over a decade thinking about people and how I can make their life 1% better using technology.</p>
+          <p data-build="type" className="text-gray-500 mb-4">Over a decade thinking about people and how I can make their life 1% better using technology.</p>
 
-          <div className="relative h-8 mb-1">
+          <div data-build="hop" className="relative h-8 mb-1">
             <ScrollCrab
               targetRef={experienceListRef}
               wobbleMax={dials.crab.wobbleMax}
@@ -307,7 +315,7 @@ export default function App() {
               key={job.company}
               className="py-6 flex justify-between items-baseline"
             >
-              <div>
+              <div data-build="type">
                 <h3 className="text-lg">
                   <a
                     href={job.url}
@@ -321,15 +329,16 @@ export default function App() {
                 </h3>
                 <p className="text-sm text-gray-500">{job.role}</p>
               </div>
-              <p className="text-sm text-gray-400">{job.dates}</p>
+              <p data-build="stamp" className="text-sm text-gray-400">{job.dates}</p>
             </div>
           ))}
           <div className="py-6">
-            <p className="text-gray-400 text-sm">+ Social Report, VPGame, and Microsoft (contracts)</p>
+            <p data-build="type" className="text-gray-400 text-sm">+ Social Report, VPGame, and Microsoft (contracts)</p>
           </div>
         </div>
 
           <div className="mt-16 text-center">
+            <div data-build="box" className="inline-block">
             <BorderDrawButton
               href="/JoeDeMaria_Resume.pdf"
               cols={dials.btnGrid.cols}
@@ -348,6 +357,7 @@ export default function App() {
             >
               VIEW MY RESUME
             </BorderDrawButton>
+            </div>
           </div>
         </div>
       </section>
@@ -356,14 +366,14 @@ export default function App() {
       <footer className="border-t border-gray-200 px-6 md:px-16 lg:px-24 max-w-6xl mx-auto py-20">
         <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-8">
           <div>
-            <p className="text-sm font-semibold tracking-widest text-gray-400 mb-2">I'M AVAILABLE</p>
-            <h2 className="text-4xl md:text-5xl font-bold font-['Caveat']">Let's Connect!</h2>
+            <p data-build="stamp" className="text-sm font-semibold tracking-widest text-gray-400 mb-2 w-fit">I'M AVAILABLE</p>
+            <h2 data-build="write" className="text-4xl md:text-5xl font-bold font-['Caveat']">Let's Connect!</h2>
           </div>
           <div className="md:text-right">
-            <a href="mailto:jdemaria43@gmail.com" className="text-lg font-semibold underline decoration-2 decoration-transparent hover:decoration-[#FFA745] transition-all duration-200">
+            <a data-build="type" href="mailto:jdemaria43@gmail.com" className="inline-block text-lg font-semibold underline decoration-2 decoration-transparent hover:decoration-[#FFA745] transition-all duration-200">
               jdemaria43@gmail.com
             </a>
-            <div className="flex items-center gap-2 mt-2 md:justify-end text-gray-500">
+            <div data-build="hop" className="flex items-center gap-2 mt-2 md:justify-end text-gray-500">
               <a href="https://linkedin.com/in/joedemaria" target="_blank" rel="noopener noreferrer" className="hover:text-[#2E77B5] underline decoration-2 decoration-transparent hover:decoration-[#2E77B5] transition-all duration-200">LinkedIn</a>
               <div className="relative overflow-hidden w-12 h-12 flex items-end justify-center pointer-events-none">
                 {/* White knockout layer so clouds are occluded */}
@@ -378,6 +388,9 @@ export default function App() {
           </div>
         </div>
       </footer>
+
+      {/* Cursors build each `data-build` element as it scrolls into view */}
+      <CursorSwarm {...dials.swarm} />
     </div>
   );
 }

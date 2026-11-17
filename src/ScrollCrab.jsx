@@ -132,12 +132,13 @@ export default function ScrollCrab({
       style={{ left, rotate }}
       className={`absolute top-0 ${size} select-none ${clickAnimation ? "cursor-pointer" : "cursor-default"} group`}
       ref={scope}
+      data-play="click"
       onClick={handleClick}
       onTouchStart={() => { isTouchRef.current = true; }}
     >
       <span className="crab-emoji inline-block">🦀</span>
       {name && (
-        <div className={`absolute left-1/2 -translate-x-1/2 bottom-full mb-2 transition-opacity pointer-events-none ${tapped ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
+        <div data-play-tip className={`absolute left-1/2 -translate-x-1/2 bottom-full mb-2 transition-opacity pointer-events-none ${tapped ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
           <div className="px-3 py-1.5 bg-gray-900 text-white rounded-lg shadow-lg whitespace-nowrap text-center">
             <div className={`${font}`}>{name}</div>
           </div>

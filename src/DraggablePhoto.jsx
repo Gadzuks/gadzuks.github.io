@@ -6,7 +6,6 @@ export default function DraggablePhoto({
   src680,
   placeholder,
   initialRotation,
-  entranceDelay,
   dragScale,
   hoverScale,
   dragElastic,
@@ -26,26 +25,12 @@ export default function DraggablePhoto({
   }
 
   return (
-    // Outer: positioning + centering (CSS translate) + entrance animation (Motion y)
-    <motion.div
+    // Outer: positioning + centering (CSS translate). A cursor drags the photo
+    // in and drops it (`data-build="carry"`), so there is no entrance here.
+    <div
       className="absolute"
-      initial={{
-        y: "120vh",
-        opacity: 0,
-        scale: 0.8,
-      }}
-      animate={{
-        y: 0,
-        opacity: 1,
-        scale: 1,
-      }}
-      transition={{
-        type: "spring",
-        stiffness: 180,
-        damping: 20,
-        mass: 1.2,
-        delay: entranceDelay,
-      }}
+      data-build="carry"
+      data-play="nudge"
       style={{
         left: photoStyle.left,
         top: photoStyle.top,
@@ -103,6 +88,6 @@ export default function DraggablePhoto({
           }}
         />
       </motion.div>
-    </motion.div>
+    </div>
   );
 }
