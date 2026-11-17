@@ -7,8 +7,8 @@ Personal portfolio site for Joe DeMaria.
 - **Framework:** React 19 with Vite 7
 - **Styling:** Tailwind CSS 4 (via `@tailwindcss/vite` plugin)
 - **Animation:** Motion (framer-motion successor) + DialKit for tuning
-- **Hosting:** GitHub Pages with custom domain (joedemaria.com)
-- **Deploy:** GitHub Actions on push to `master` branch
+- **Hosting:** Vercel (project `portfolio` under `joedemaria-projects`) with custom domain (joedemaria.com)
+- **Deploy:** Vercel auto-deploys on push to `master` (personal Vercel account, not the work one)
 
 ## Commands
 
@@ -19,7 +19,7 @@ Personal portfolio site for Joe DeMaria.
 ## Project Structure
 
 - `src/` — React components and styles
-- `public/` — static assets served at root (images, CNAME)
+- `public/` — static assets served at root (images)
 - `public/pictures/` — images (headshots, project mockups, favicon)
 
 ## Conventions
